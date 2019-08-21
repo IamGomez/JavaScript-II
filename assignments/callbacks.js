@@ -41,11 +41,30 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
+
+  cb(arr.length);
 }
+
+getLength(items, arrayLen => {
+
+  console.log(" The length of the array is " + arrayLen);
+})
+
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
+
+  cb(arr[arr.length - 1]);
+
 }
+
+last(items, lastItem => {
+
+  console.log(" The last item on the array is " + lastItem);
+
+})
+
+
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
