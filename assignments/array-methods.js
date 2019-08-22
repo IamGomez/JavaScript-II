@@ -101,8 +101,10 @@ console.log(runnersLargeSizeShirt);
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
 
-let ticketPriceTotal = runners.reduce(acc, runners.donation, 0, runners);
+let ticketPriceTotal = runners.reduce((total, runner) => {
 
+  return total += runner.donation;
+}, 0);
 
 console.log(ticketPriceTotal);
 
@@ -111,6 +113,28 @@ console.log(ticketPriceTotal);
 
 // Problem 1
 
+let mediumShirts = runners.filter(shirts_medium => { return shirts_medium.shirt_size === 'M' });
+
+console.log(mediumShirts);
+
 // Problem 2
 
+let companyArr = [];
+
+runners.forEach(company => companyArr.push(`${company.company_name}`));
+
+console.log(companyArr);
+
 // Problem 3
+
+let firstNamesLower = [];
+
+function lowerNames(info) {
+
+  firstNamesLower.push(info.first_name.toLowerCase() + ' ' + info.last_name.toLowerCase())
+
+}
+
+runners.map(lowerNames);
+
+console.log(firstNamesLower);

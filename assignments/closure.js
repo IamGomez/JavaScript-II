@@ -5,6 +5,20 @@
 // The outer scope can be a parent function, or the top level of the script.
 
 
+let animal = 'dog';
+let animalTwo = 'cat';
+
+function animalSound(object) {
+
+  return object + " goes woof woof!"
+
+}
+
+
+console.log(animalSound(animal));
+console.log(animalSound(animalTwo));
+
+
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
 
