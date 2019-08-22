@@ -58,21 +58,54 @@ const runners = [
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs. Combine both the first and last names and populate a new array called `fullNames`. This array will contain just strings.
 let fullNames = [];
+
+function allRunners(info) {
+
+  fullNames.push(info.first_name + ' ' + info.last_name)
+}
+
+runners.forEach(allRunners);
+
 console.log(fullNames);
+
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runners' first names in uppercase because the director BECAME DRUNK WITH POWER. Populate an array called `firstNamesAllCaps`. This array will contain just strings.
 let firstNamesAllCaps = [];
+
+function upperNames(info) {
+
+  firstNamesAllCaps.push(info.first_name.toUpperCase() + ' ' + info.last_name)
+
+}
+runners.map(upperNames);
+
 console.log(firstNamesAllCaps);
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only those runners with large sized shirts so they can choose a different size. This will be an array of objects.
 let runnersLargeSizeShirt = [];
+
+function largeSize(info) {
+
+  if (info.shirt_size === 'L') {
+
+    runnersLargeSizeShirt.push(info.first_name + ' ' + info.last_name)
+  }
+}
+
+runners.filter(largeSize)
+
 console.log(runnersLargeSizeShirt);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
-let ticketPriceTotal = 0;
+
+let ticketPriceTotal = runners.reduce((total, runner) => {
+
+  return total += runner.donation;
+}, 0);
+
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
@@ -80,6 +113,28 @@ console.log(ticketPriceTotal);
 
 // Problem 1
 
+let mediumShirts = runners.filter(shirts_medium => { return shirts_medium.shirt_size === 'M' });
+
+console.log(mediumShirts);
+
 // Problem 2
 
+let companyArr = [];
+
+runners.forEach(company => companyArr.push(`${company.company_name}`));
+
+console.log(companyArr);
+
 // Problem 3
+
+let firstNamesLower = [];
+
+function lowerNames(info) {
+
+  firstNamesLower.push(info.first_name.toLowerCase() + ' ' + info.last_name.toLowerCase())
+
+}
+
+runners.map(lowerNames);
+
+console.log(firstNamesLower);
